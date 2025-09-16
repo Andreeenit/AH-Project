@@ -1,0 +1,57 @@
+# ---- Build and publish outputs ----
+bin/
+obj/
+out/
+publish/
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+
+# ---- User-specific files ----
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.swp
+*.DS_Store
+*.vs/
+
+# ---- Logs ----
+*.log
+
+# ---- Temporary files ----
+*.tmp
+*.temp
+*.bak
+*.ncb
+*.cache
+*.dbmdl
+*.jfm
+
+# ---- EF Core ----
+# Migrations are usually committed, but local databases aren’t
+*.mdf
+*.ldf
+*.sqlite
+*.db
+
+# ---- Visual Studio Code ----
+.vscode/
+.history/
+*.code-workspace
+
+# ---- NuGet packages ----
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# ---- Secrets / config ----
+secrets.json
+appsettings.Development.json
+
+# ---- Other ----
+wwwroot/dist/
+node_modules/
