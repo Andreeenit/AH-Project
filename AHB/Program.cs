@@ -1,11 +1,11 @@
 using AH.Components;
-
+using AH.Api;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
-
+builder.Services.AddSingleton(sp => new Api(new HttpClient())); 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
