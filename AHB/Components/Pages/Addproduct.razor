@@ -1,0 +1,28 @@
+@page "/addproduct"   ////////
+@inject ApiService Api
+@inject NavigationManager Nav
+
+<h3>Lägg till ny produkt</h3>
+
+<div class="form-group">
+    <label>SKU:</label>
+    <input @bind="article.SKU" class="form-control" />
+
+    <label>Namn:</label>
+    <input @bind="article.Name" class="form-control" />
+
+    <label>Pris:</label>
+    <input type="number" @bind="article.Price" class="form-control" />
+
+    <button class="btn btn-primary mt-2" @onclick="SaveProduct">Spara</button>
+</div>
+
+@code {
+    private Article article = new();
+
+    private async Task SaveProduct()
+    {
+        await Api.AddProductAsync(article);
+        Nav.NavigateTo("/products"); // Gå tillbaka till listan efter sparande
+    }
+}
