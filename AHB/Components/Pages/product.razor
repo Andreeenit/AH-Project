@@ -1,0 +1,44 @@
+@page "/products"//////
+@inject ApiService Api
+
+<h3>Alla produkter</h3>
+
+@if (products == null)
+{
+    <p>Laddar produkter...</p>
+}
+else if (products.Count == 0)
+{
+    <p>Inga produkter hittades.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>SKU</th>
+                <th>Namn</th>
+                <th>Pris</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in products)
+            {
+                <tr>
+                    <td>@p.SKU</td>
+                    <td>@p.Name</td>
+                    <td>@p.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Article>? products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = await Api.GetProductsAsync();
+    }
+}
